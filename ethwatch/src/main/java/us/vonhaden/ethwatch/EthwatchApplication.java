@@ -1,12 +1,7 @@
 package us.vonhaden.ethwatch;
 
-import us.vonhaden.ethwatch.domain.Request;
-
-import java.math.BigDecimal;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,14 +12,12 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class EthwatchApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(EthwatchApplication.class);
-
-	@Autowired
-	public EmailServiceImpl emailService;
+	private static final Logger logger = LoggerFactory.getLogger(EthwatchApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(EthwatchApplication.class, args);
 	}
+
 
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -32,19 +25,11 @@ public class EthwatchApplication {
 	}
 
 	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+	public CommandLineRunner run() throws Exception {
 		return args -> {
-			Request request = restTemplate.getForObject(
-					"https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken", Request.class);
-			BigDecimal val = new BigDecimal("2950");
-			if (request.getUSD().compareTo(val) <= 0) {
-				log.info("lower than " + request.toString());
 
-//				emailService.sendSimpleMessage("6125991864@vtext.com", "Low Price", request.toString());
-			} else {
-//				emailService.sendSimpleMessage("6125991864@vtext.com", "High Price", request.toString());
-				log.info("higher than " + request.toString());
-			}
+			logger.info("started ethwatch");
+
 		};
 	}
 
