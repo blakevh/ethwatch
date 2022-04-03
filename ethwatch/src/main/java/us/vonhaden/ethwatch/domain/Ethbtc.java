@@ -3,6 +3,8 @@
  */
 package us.vonhaden.ethwatch.domain;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -11,20 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Ethbtc {
-	private String ethbtc;
+	private BigDecimal ethbtc;
 	private String ethbtc_timestamp;
-	private String ethusd;
+	private BigDecimal ethusd;
 	private String ethusd_timestamp;
 	/**
 	 * @return the ethbtc
 	 */
-	public String getEthbtc() {
+	public BigDecimal getEthbtc() {
 		return ethbtc;
 	}
 	/**
 	 * @param ethbtc the ethbtc to set
 	 */
-	public void setEthbtc(String ethbtc) {
+	public void setEthbtc(BigDecimal ethbtc) {
 		this.ethbtc = ethbtc;
 	}
 	/**
@@ -42,13 +44,13 @@ public class Ethbtc {
 	/**
 	 * @return the ethusd
 	 */
-	public String getEthusd() {
+	public BigDecimal getEthusd() {
 		return ethusd;
 	}
 	/**
 	 * @param ethusd the ethusd to set
 	 */
-	public void setEthusd(String ethusd) {
+	public void setEthusd(BigDecimal ethusd) {
 		this.ethusd = ethusd;
 	}
 	/**

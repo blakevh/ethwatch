@@ -14,7 +14,7 @@
 	<name>ethwatch</name>
 	<description>Notify when ethereum hits high or low price defined</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

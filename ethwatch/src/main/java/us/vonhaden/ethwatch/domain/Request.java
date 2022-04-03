@@ -3,6 +3,8 @@
  */
 package us.vonhaden.ethwatch.domain;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -36,6 +38,9 @@ public class Request {
 
 	@Override
 	public String toString() {
+		return result.getEthusd().toPlainString();
+	}
+	public BigDecimal getUSD() {
 		return result.getEthusd();
 	}
 }
