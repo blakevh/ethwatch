@@ -40,8 +40,9 @@ public class EthwatchApplication {
 			if (request.getUSD().compareTo(val) <= 0) {
 				log.info("lower than " + request.toString());
 
-				emailService.sendSimpleMessage("6125991864@vtext.com", "New Price", request.toString());
+//				emailService.sendSimpleMessage("6125991864@vtext.com", "Low Price", request.toString());
 			} else {
+//				emailService.sendSimpleMessage("6125991864@vtext.com", "High Price", request.toString());
 				log.info("higher than " + request.toString());
 			}
 		};
